@@ -1,0 +1,8 @@
+# Eclipse IDE Files
+.classpath
+.project
+.settings/
+build/
+
+# generated stuff
+/bin
