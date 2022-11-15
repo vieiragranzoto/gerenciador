@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:url value="/cadastro" var="recurso"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,11 +31,13 @@ margin:10px auto;
 </style>
 </head>
 <body>
-	<form method="post" action="/gerenciador/cadastro">
+	<form method="post" action="${recurso}">
 		Informe o nome:
 		<input class="valor" type="text" name="nome"></input>
 		Informe o CNPJ:
 		<input class="valor" type="text" name="cnpj"></input>
+		Informe a data:
+		<input class="valor" type="date" name="data"></input>
 		<input class="botao" type="submit" value="Enviar" ></input>
 	</form>
 </body>

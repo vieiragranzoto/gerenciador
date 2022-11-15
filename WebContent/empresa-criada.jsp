@@ -1,7 +1,4 @@
-<%
-	String nome = "alura";
-	System.out.println(nome);
-%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +12,11 @@ background-color:black;
 </style>
 </head>
 <body>
-		Empresa: <%= nome%> cadastrada com sucesso!"
+	<c:if test="${not empty nome}">
+		Empresa: ${ nome } cadastrada com sucesso!
+	</c:if>
+	<c:if test="${empty nome}">
+		Nenhuma empresa cadastrada!
+	</c:if>
 </body>
 </html>
