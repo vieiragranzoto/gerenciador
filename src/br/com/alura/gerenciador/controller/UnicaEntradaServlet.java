@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.alura.gerenciador.actions.CadastrarEmpresa;
-import br.com.alura.gerenciador.actions.EditarEmpresaController;
-import br.com.alura.gerenciador.actions.ListaEmpresasController;
-import br.com.alura.gerenciador.actions.MostraEmpresaController;
-import br.com.alura.gerenciador.actions.RemoverEmpresaController;
+import br.com.alura.gerenciador.actions.EditarEmpresa;
+import br.com.alura.gerenciador.actions.ListaEmpresas;
+import br.com.alura.gerenciador.actions.MostraEmpresa;
+import br.com.alura.gerenciador.actions.RemoverEmpresa;
 
 @WebServlet("/")
 public class UnicaEntradaServlet extends HttpServlet {
@@ -35,7 +35,7 @@ public class UnicaEntradaServlet extends HttpServlet {
 			String redireciona = "";
 			if(paramAcao.equals("lista")) {
 				System.out.print("lista - ");
-				ListaEmpresasController lec = new ListaEmpresasController();
+				ListaEmpresas lec = new ListaEmpresas();
 				redireciona = lec.executa(request, response);
 			}
 			else if(paramAcao.equals("novoCadastro")) {
@@ -49,17 +49,17 @@ public class UnicaEntradaServlet extends HttpServlet {
 			}
 			else if(paramAcao.equals("remover")) {
 				System.out.print("remover - ");
-				RemoverEmpresaController rec = new RemoverEmpresaController();
+				RemoverEmpresa rec = new RemoverEmpresa();
 				redireciona = rec.executa(request, response);
 			}
 			else if(paramAcao.equals("editar")) {
 				System.out.print("editar - ");
-				EditarEmpresaController eec = new EditarEmpresaController();
+				EditarEmpresa eec = new EditarEmpresa();
 				redireciona = eec.executa(request, response);
 			}
 			else if(paramAcao.equals("mostrar")) {
 				System.out.print("mostrar - ");
-				MostraEmpresaController mec = new MostraEmpresaController();
+				MostraEmpresa mec = new MostraEmpresa();
 				redireciona =mec.executa(request, response);
 			}
 			String[] tipo = redireciona.split(":");

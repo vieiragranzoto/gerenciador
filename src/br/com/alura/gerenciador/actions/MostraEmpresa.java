@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alura.gerenciador.model.Banco;
 import br.com.alura.gerenciador.model.Empresa;
 
-public class MostraEmpresaController {
+public class MostraEmpresa {
 
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
