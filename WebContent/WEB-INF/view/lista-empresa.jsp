@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>gerenciador - Lista de empresas</title>
+<title>Gerenciador - Lista de empresas</title>
 <style>
 html, body {
 	color: white;
@@ -22,7 +22,7 @@ a:hover {
 </style>
 </head>
 <body>
-	Deseja cadastrar nova empresa? <a href="form-empresa.jsp">Cadastrar</a><br><br>
+	Deseja cadastrar nova empresa? <a href="/gerenciador/entrada?acao=novoCadastro">Cadastrar</a><br><br>
 	<c:if test="${not empty lista}">
 		Lista de empresas: <br>	
 	</c:if>
@@ -30,8 +30,8 @@ a:hover {
 		<c:forEach items="${lista}" var="empresa">
 		<fmt:parseDate  value="${empresa.data}"  type="date" pattern="yyyy-MM-dd" var="parsedDate" />
 			<li>${empresa.nome} - <fmt:formatDate pattern="dd/MM/yyyy" value="${parsedDate}"/>
-			- <a href="/gerenciador/mostrarEmpresa?id=${empresa.id}">editar</a>
-			- <a href="/gerenciador/remover?id=${empresa.id}">remover</a></li>
+			- <a href="/gerenciador/entrada?id=${empresa.id}&acao=mostrar">editar</a>
+			- <a href="/gerenciador/entrada?id=${empresa.id}&acao=remover">remover</a></li>
 		</c:forEach>
 	</ul>
 </body>

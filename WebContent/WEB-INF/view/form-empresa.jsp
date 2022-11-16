@@ -1,10 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:url value="/cadastro" var="recurso"/>
+<c:url value="/entrada" var="recurso"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>gerenciador - Formulário de Empresas</title>
+<title>Gerenciador - Formulario de Empresas</title>
 <style>
 html,body{
 color:white;
@@ -36,6 +36,7 @@ margin:10px auto;
 		<input class="valor" type="text" name="nome"></input>
 		Informe a data:
 		<input class="valor" type="date" name="data"></input>
+		<input type="hidden" name="acao" value="cadastro">
 		<input class="botao" type="submit" value="Enviar" ></input>
 	</form>
 </body>
