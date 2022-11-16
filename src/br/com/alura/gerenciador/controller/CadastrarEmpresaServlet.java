@@ -20,13 +20,19 @@ public class CadastrarEmpresaServlet extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LocalDate ld = LocalDate.parse(request.getParameter("data"));
-		Empresa em = new Empresa(request.getParameter("nome"), request.getParameter("cnpj"), ld);
+		Empresa em = new Empresa();
+		em.setNome(request.getParameter("nome"));
+		em.setData(ld);
 		Banco banco = new Banco();
 		banco.adiciona(em);
-		RequestDispatcher rd = request.getRequestDispatcher("/empresa-criada.jsp");
-		request.setAttribute("nome", em.getNome());
-		request.setAttribute("data", em.getData());
-		rd.forward(request, response);
+		
+		//redirecionamento Client side
+		response.sendRedirect("lista");
+		
+		//redirecionamento Server side
+//		RequestDispatcher rd = request.getRequestDispatcher("/lista");
+//		request.setAttribute("data", em.getData());
+//		rd.forward(request, response);
 	}
 
 }

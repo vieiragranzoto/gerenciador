@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:url value="/cadastro" var="recurso"/>
+<c:url value="/editar" var="recurso"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,9 +33,10 @@ margin:10px auto;
 <body>
 	<form method="post" action="${recurso}">
 		Informe o nome:
-		<input class="valor" type="text" name="nome"></input>
+		<input class="valor" type="text" name="nome" value="${empresa.nome}"></input>
 		Informe a data:
-		<input class="valor" type="date" name="data"></input>
+		<input class="valor" type="date" name="data" value="${empresa.data}"></input>
+		<input type="hidden" name="id" value="${empresa.id}">
 		<input class="botao" type="submit" value="Enviar" ></input>
 	</form>
 </body>

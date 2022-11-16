@@ -18,12 +18,14 @@ public class ListaEmpresasServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Banco banco = new Banco();
 		List<Empresa> lista = banco.getLista();
-		request.setAttribute("lista", lista);
-		request.getRequestDispatcher("lista-empresa.jsp").forward(request, response);;
+		if(request.getAttribute("lista")==null) {
+			request.setAttribute("lista", lista);
+		}
+		request.getRequestDispatcher("lista-empresa.jsp").forward(request, response);
 	}
 
 }
