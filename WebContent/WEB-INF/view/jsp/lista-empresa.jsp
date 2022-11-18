@@ -22,7 +22,7 @@ a:hover {
 </style>
 </head>
 <body>
-	Deseja cadastrar nova empresa? <a href="/gerenciador/entrada?acao=novoCadastro">Cadastrar</a><br><br>
+	Deseja cadastrar nova empresa? <a href="/gerenciador/entrada?acao=CadastrarEmpresaForm">Cadastrar</a><br><br>
 	<c:if test="${not empty lista}">
 		Lista de empresas: <br>	
 	</c:if>

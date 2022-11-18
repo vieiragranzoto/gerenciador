@@ -45,7 +45,7 @@ form {
 </head>
 <body>
 	<form method="post" action="${recurso}">
-		<c:if test="${usuarioIncorreto==true}">
+		<c:if test="${incorreto}">
 			<label id="mensagem">Nome de usuario ou senha incorreto!</label>
 		</c:if>
 		<label for="nome">Informe o nome de usuario:</label>
