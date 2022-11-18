@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Gerenciador - Lista de empresas</title>
-<style>
+<style type="text/css">
 html, body {
 	color: white;
 	background-color: black;
@@ -30,8 +30,8 @@ a:hover {
 		<c:forEach items="${lista}" var="empresa">
 		<fmt:parseDate  value="${empresa.data}"  type="date" pattern="yyyy-MM-dd" var="parsedDate" />
 			<li>${empresa.nome} - <fmt:formatDate pattern="dd/MM/yyyy" value="${parsedDate}"/>
-			- <a href="/gerenciador/entrada?id=${empresa.id}&acao=mostrar">editar</a>
-			- <a href="/gerenciador/entrada?id=${empresa.id}&acao=remover">remover</a></li>
+			- <a href="/gerenciador/entrada?id=${empresa.id}&acao=MostraEmpresa">editar</a>
+			- <a href="/gerenciador/entrada?id=${empresa.id}&acao=RemoverEmpresa">remover</a></li>
 		</c:forEach>
 	</ul>
 </body>

@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador.actions;
+package br.com.alura.gerenciador.controller.action;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alura.gerenciador.model.Banco;
 import br.com.alura.gerenciador.model.Empresa;
 
-public class CadastrarEmpresa {
+public class CadastrarEmpresa implements Action{
 
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -19,9 +19,9 @@ public class CadastrarEmpresa {
 		em.setNome(request.getParameter("nome"));
 		em.setData(ld);
 		Banco banco = new Banco();
-		banco.adiciona(em);
+		banco.adicionaEmpresa(em);
 		
-		return "redirect:entrada?acao=lista";
+		return "redirect:entrada?acao=ListaEmpresas";
 
 		// redirecionamento Client side
 //		response.sendRedirect("entrada?acao=lista");

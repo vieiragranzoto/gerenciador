@@ -5,28 +5,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Gerenciador - Formulario de Empresas</title>
-<style>
-html,body{
-color:white;
-background-color:black;
-text-align:center;
+<style type="text/css">
+html, body {
+	color: white;
+	background-color: black;
+	text-align: center;
 }
-form{
-heigth: 500px;
-margin: 0 auto;
-width:400px;
+
+form {
+	heigth: 500px;
+	margin: 0 auto;
+	width: 400px;
 }
-.valor{
-display:block;
-padding:10px;
-margin:0 auto;
-width:40%;
+
+.valor {
+	display: block;
+	padding: 10px;
+	margin: 0 auto;
+	width: 40%;
 }
-.botao{
-width:45%;
-display:block;
-padding:10px;
-margin:10px auto;
+
+.botao {
+	width: 45%;
+	display: block;
+	padding: 10px;
+	margin: 10px auto;
 }
 </style>
 </head>
@@ -36,7 +39,7 @@ margin:10px auto;
 		<input class="valor" type="text" name="nome"></input>
 		Informe a data:
 		<input class="valor" type="date" name="data"></input>
-		<input type="hidden" name="acao" value="cadastro">
+		<input type="hidden" name="acao" value="CadastrarEmpresa">
 		<input class="botao" type="submit" value="Enviar" ></input>
 	</form>
 </body>
