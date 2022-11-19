@@ -19,20 +19,20 @@ public class EntradaServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String paramAcao, redireciona, nomeDaClasse;
+		String paramAcao = "vazio", redireciona, nomeDaClasse;
 
 		try {
 			
-			paramAcao = request.getParameter("acao");
-			
+			if(request.getParameter("acao")!=null)
+				paramAcao = request.getParameter("acao");
+	
 			HttpSession sessao = request.getSession();
 			
 			if(sessao.getAttribute("usuario") == null && !paramAcao.equals("EfetuarLoginUsuario"))
 				paramAcao = "EfetuarLoginUsuarioForm";
 			
-			if (request.getParameter("acao") == null && sessao.getAttribute("usuario") != null)
-				request.getRequestDispatcher("WEB-INF/view/jsp/lista-empresa.jsp").forward(request, response);
-			
+			if(sessao.getAttribute("usuario") != null && paramAcao.equals("vazio"))
+				paramAcao = "ListaEmpresas";
 
 			nomeDaClasse = "br.com.alura.gerenciador.controller.action." + paramAcao;
 			@SuppressWarnings("rawtypes")
