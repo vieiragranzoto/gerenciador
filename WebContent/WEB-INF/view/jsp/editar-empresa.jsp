@@ -34,6 +34,7 @@ form {
 </style>
 </head>
 <body>
+	<c:import url="logout-parcial.jsp"/>
 	<form method="post" action="${recurso}">
 		Informe o nome:
 		<input class="valor" type="text" name="nome" value="${empresa.nome}"></input>

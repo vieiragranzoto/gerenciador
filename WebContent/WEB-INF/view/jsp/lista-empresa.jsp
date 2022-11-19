@@ -13,6 +13,7 @@ html, body {
 a{
 	background-color: white;
 	text-decoration: none;
+	color:black;
 	border: 2px solid white;
 	border-radius:4px;
 }
@@ -22,7 +23,8 @@ a:hover {
 </style>
 </head>
 <body>
-	Deseja cadastrar nova empresa? <a href="/gerenciador/entrada?acao=CadastrarEmpresaForm">Cadastrar</a><br><br>
+	<c:import url="logout-parcial.jsp"/>
+	Deseja cadastrar nova empresa? <a href="/gerenciador/entrada?acao=CadastrarEmpresaForm">Cadastrar</a><br><br><br>
 	<c:if test="${not empty lista}">
 		Lista de empresas: <br>	
 	</c:if>
