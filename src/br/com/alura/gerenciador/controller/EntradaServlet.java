@@ -19,20 +19,9 @@ public class EntradaServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String paramAcao = "vazio", redireciona, nomeDaClasse;
-
+		String paramAcao, redireciona, nomeDaClasse;
 		try {
-			
-			if(request.getParameter("acao")!=null)
 				paramAcao = request.getParameter("acao");
-	
-			HttpSession sessao = request.getSession();
-			
-			if(sessao.getAttribute("usuario") == null && !paramAcao.equals("EfetuarLoginUsuario"))
-				paramAcao = "EfetuarLoginUsuarioForm";
-			
-			if(sessao.getAttribute("usuario") != null && paramAcao.equals("vazio"))
-				paramAcao = "ListaEmpresas";
 
 			nomeDaClasse = "br.com.alura.gerenciador.controller.action." + paramAcao;
 			@SuppressWarnings("rawtypes")
