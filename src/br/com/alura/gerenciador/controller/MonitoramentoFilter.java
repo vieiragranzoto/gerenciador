@@ -7,7 +7,6 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 
 //@WebFilter("/*")
 public class MonitoramentoFilter implements Filter {
@@ -17,17 +16,17 @@ public class MonitoramentoFilter implements Filter {
 			throws IOException, ServletException {
 
 		System.out.println("MonitoramentoFilter");
-		
+
 		long antes = System.currentTimeMillis();
-		
+
 		String acao = request.getParameter("acao");
-		
+
 		chain.doFilter(request, response);
 
 		long depois = System.currentTimeMillis();
-		
-		System.out.println("Tempo de execucao da acao "+acao+": "+(depois-antes));
-		
+
+		System.out.println("Tempo de execucao da acao " + acao + ": " + (depois - antes));
+
 	}
 
 }
