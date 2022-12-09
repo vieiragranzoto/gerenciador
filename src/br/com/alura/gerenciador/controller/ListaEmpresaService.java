@@ -12,12 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.XStreamer;
+import com.thoughtworks.xstream.converters.time.LocalDateConverter;
 
 import br.com.alura.gerenciador.model.Banco;
 import br.com.alura.gerenciador.model.Empresa;
@@ -28,16 +29,26 @@ public class ListaEmpresaService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		List<Empresa> empresas = new Banco().getListaEmpresa();
-		Gson gson = new GsonBuilder()
-		        .setPrettyPrinting()
-		        .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
-		        .create();
-		String json = gson.toJson(empresas);
+
+		XStream xStream = new XStream();	
 		
-		response.setContentType("application/json");
-		response.getWriter().print(json);
+		xStream.alias("empresa", Empresa.class);
+		
+		String xml = xStream.toXML(empresas);
+
+		response.setContentType("application/xml");
+		response.getWriter().print(xml);
+
+//		Gson gson = new GsonBuilder()
+//		        .setPrettyPrinting()
+//		        .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+//		        .create();
+//		String json = gson.toJson(empresas);
+//		
+//		response.setContentType("application/json");
+//		response.getWriter().print(json);
 	}
 
 }
