@@ -6,3 +6,4 @@ build/
 
 # generated stuff
 /bin
+/target/
